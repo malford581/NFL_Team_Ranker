@@ -4,8 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 
-
-app.config['SQLALCHEMY_DATABASE_URI']
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///NFLRankingTable.db'
 
 
 db = SQLAlchemy(app)
@@ -19,7 +18,6 @@ class NFLRankingTable(db.Model):
     proj_loss = db.Column(db.String(255), nullable=False)
     play_off = db.Column(db.String(255), nullable=False)
     sb_win = db.Column(db.String(255), nullable=False)
-
 
 
 @app.route("/", methods=["GET"])
@@ -53,8 +51,7 @@ def home():
 
         d.append(row_as_dict)
 
-    return render_template("home.html", data=d)
-
+    return render_template("index.html", data=d)
 
 
 @app.route("/api", methods=["GET"])
@@ -63,8 +60,6 @@ def api_route():
     table = NFLRankingTable.query.all()
 
     d=[]
-
-    
 
     for row in table:
 
@@ -90,7 +85,6 @@ def api_route():
         d.append(row_as_dict)
 
     return jsonify(d)
-
 
 
 if __name__ == "__main__":

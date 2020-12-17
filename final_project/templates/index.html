@@ -1,21 +1,17 @@
 <!DOCTYPE html>
-<html lang=”en”>
- <head>
-  <meta charset=”UTF-8">
-  <meta name=”viewport” content=”width=device-width, initial-scale=1.0">
-  <meta http-equiv=”X-UA-Compatible” content=”ie=edge”>
-  <title>Webscraper in Python using Flask</title>
- </head>
- <body>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
     <table>
         <tr>
-         <th>ranking</th>
-         <th>rating</th>
-         <th>team</th>
-         <th>projected win</th>
-         <th>projected lose</th>
-         <th>playoff</th>
-         <th>sb_win</th>
+         <th>Ranking</th>
+         <th>Rating</th>
+         <th>Team</th>
+         <th>Projected win</th>
+         <th>Projected loss</th>
+         <th>Playoff</th>
+         <th>SB_win</th>
         <tr>
         {% for row in data %}
           <tr>
@@ -27,7 +23,8 @@
             <td>{{ row["play_off"] }}</td> 
             <td>{{ row["sb_win"] }}</td> 
           </tr>
-         {% endfor % }
+         {% endfor %}
+
       <table>
- </body>
 </html>
+ 

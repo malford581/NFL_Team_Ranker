@@ -53,7 +53,6 @@ def home():
 
     return render_template("index.html", data=d)
 
-
 @app.route("/api", methods=["GET"])
 def api_route():
 

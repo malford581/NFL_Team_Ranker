@@ -1,2 +1,3 @@
-python 
-python-heroku
+django
+gunicorn
+django-heroku
